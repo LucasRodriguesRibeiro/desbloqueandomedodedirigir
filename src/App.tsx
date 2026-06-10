@@ -106,11 +106,11 @@ export default function App() {
 
     setScoreResult(totalScore);
 
-    // Profile determination based on score rules
+    // Profile determination based on score rules (max score is 15)
     let profileType = ProfileType.MODERADO;
-    if (totalScore <= 18) {
+    if (totalScore <= 8) {
       profileType = ProfileType.LEVE;
-    } else if (totalScore > 29) {
+    } else if (totalScore >= 12) {
       profileType = ProfileType.INTENSO;
     }
     setProfile(profileType);
@@ -278,145 +278,44 @@ export default function App() {
               transition={{ duration: 0.22 }}
               className="w-full max-w-xl bg-white rounded-3xl p-6 md:p-8 border border-pink-100/40 shadow-xl text-center flex flex-col justify-between"
             >
-              {/* Dynamic Header progress tracker */}
-              <div className="mb-6">
-                <div className="flex justify-between items-center mb-2 text-xs text-purple-400 px-1 font-semibold font-mono">
-                  <span>SESSÃO DE DIAGNÓSTICO</span>
-                  <span className="text-pink-600 font-bold">{progressPercent}% Completo</span>
+              {/* Minimalist Top Progress */}
+              <div className="mb-6 space-y-2 text-center select-none">
+                <div className="text-xs font-mono font-bold tracking-widest text-purple-700/80 uppercase">
+                  Diagnóstico Emocional • Pergunta {currentQuestionIndex + 1} de {QUIZ_QUESTIONS.length}
                 </div>
-                {/* Advanced progress tracker bar */}
-                <div className="w-full bg-pink-50 rounded-full h-2 overflow-hidden">
+                <div className="w-full bg-pink-100/40 rounded-full h-1 relative overflow-hidden">
                   <div 
-                    className="bg-gradient-to-r from-purple-600 to-pink-500 h-full transition-all duration-300"
+                    className="bg-pink-500 h-full transition-all duration-300"
                     style={{ width: `${Math.max(5, progressPercent)}%` }}
                   ></div>
-                </div>
-                <div className="text-[10px] text-purple-500 font-semibold text-left mt-1.5 flex justify-between">
-                  <span>Pergunta {currentQuestionIndex + 1} de {QUIZ_QUESTIONS.length}</span>
-                  <span className="text-pink-600 font-bold italic">Processando perfil...</span>
                 </div>
               </div>
 
               {/* Dynamic Question Body */}
               <div className="my-4 flex-1">
-                <div className="inline-flex items-center justify-center w-10 h-10 bg-pink-50 text-pink-700 font-bold rounded-full text-xs font-mono border border-pink-100/50 mb-3">
-                  {currentQuestion.id}
-                </div>
-                
                 <h3 className="text-xl md:text-2xl font-black text-purple-950 leading-tight font-display px-2 mb-6">
                   {currentQuestion.questionText}
                 </h3>
 
-                {/* Conditional Question forms: standard option vs interactive slider */}
-                {currentQuestion.type === "select" ? (
-                  <div className="space-y-2.5 max-w-md mx-auto text-left">
-                    {currentQuestion.options.map((opt) => (
-                      <button
-                        key={opt.id}
-                        id={`option-${opt.id}`}
-                        onClick={() => handleSelectOption(opt)}
-                        className="w-full text-left px-5 py-3.5 bg-white hover:bg-pink-50/20 border border-pink-100 hover:border-pink-300 active:bg-pink-50 rounded-xl text-sm md:text-base text-purple-950 font-semibold transition duration-150 cursor-pointer shadow-3xs flex items-center justify-between group"
-                      >
-                        <span className="pr-4">{opt.text}</span>
-                        <span className="w-6 h-6 border border-pink-100 group-hover:border-pink-350 rounded-full flex items-center justify-center bg-pink-50/30 group-hover:bg-pink-100 transition shrink-0">
-                          <ChevronRight size={14} className="text-pink-400 group-hover:text-pink-700 transition" />
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                ) : (
-                  /* Question 8 Slider custom UI mapping */
-                  <div className="max-w-md mx-auto py-4 space-y-8">
-                    {/* Visual Meter Badge */}
-                    <div className="flex justify-center">
-                      <div className={`px-4 py-3 rounded-2xl border text-center transition-all duration-300 ${
-                        sliderValue >= 8 
-                          ? "bg-rose-50 border-rose-100 text-rose-800 shadow-xs" 
-                          : sliderValue >= 5 
-                          ? "bg-amber-50 border-amber-100 text-amber-800" 
-                          : "bg-pink-50 border-pink-100 text-pink-800"
-                      }`}>
-                        <span className="text-4xl font-extrabold block font-mono">{sliderValue}</span>
-                        <span className="text-[11px] font-bold tracking-wide uppercase mt-1 block">
-                          {sliderValue <= 3 ? "Leve / Sob Controle" : sliderValue <= 7 ? "Moderado / Restritivo" : "Intenso / Paralisante"}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Interactive horizontal scale selector (Tappable numbers for fast Mobile interaction) */}
-                    <div className="space-y-4">
-                      {/* Input slider */}
-                      <input
-                        type="range"
-                        id="driving-freedom-range"
-                        min="1"
-                        max="10"
-                        step="1"
-                        value={sliderValue}
-                        onChange={(e) => setSliderValue(parseInt(e.target.value))}
-                        className="w-full h-2 bg-pink-100 rounded-lg appearance-none cursor-pointer accent-pink-600 focus:outline"
-                      />
-
-                      {/* Tick Label scale layout */}
-                      <div className="flex justify-between text-xs font-bold text-purple-400 font-mono px-1">
-                        <span>1 = QUASE NADA</span>
-                        <span>5</span>
-                        <span>10 = TOTALMENTE</span>
-                      </div>
-
-                      {/* Fast touch selection circles */}
-                      <div className="flex justify-between gap-1">
-                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
-                          const isSelected = num === sliderValue;
-                          const isLowerOrEqual = num <= sliderValue;
-                          let activeColor = "bg-pink-500 text-white border-pink-500";
-                          if (sliderValue >= 8) {
-                            activeColor = "bg-rose-500 text-white border-rose-500";
-                          } else if (sliderValue >= 5) {
-                            activeColor = "bg-purple-600 text-white border-purple-600";
-                          }
-                          return (
-                            <button
-                              type="button"
-                              key={num}
-                              id={`slider-num-${num}`}
-                              onClick={() => setSliderValue(num)}
-                              className={`w-8 h-8 rounded-full border text-xs font-bold flex items-center justify-center transition-all cursor-pointer ${
-                                isSelected
-                                  ? activeColor
-                                  : isLowerOrEqual
-                                  ? "border-pink-200 bg-pink-50/50 text-purple-750"
-                                  : "border-pink-100 bg-white text-purple-300 hover:bg-pink-50/20"
-                              }`}
-                            >
-                              {num}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-
-                    {/* Helpful helper explanation */}
-                    <p className="text-xs text-purple-500/70 leading-relaxed max-w-xs mx-auto font-medium">
-                      Estime o grau em que esse medo impede você de ir e vir livremente no seu cotidiano.
-                    </p>
-
-                    {/* Multi-step Slider next action button */}
+                <div className="space-y-2.5 max-w-md mx-auto text-left">
+                  {currentQuestion.options.map((opt) => (
                     <button
-                      type="button"
-                      id="submit-slider-btn"
-                      onClick={handleSliderSubmit}
-                      className="w-full mt-4 py-3.5 px-6 bg-pink-600 hover:bg-pink-550 text-white rounded-xl text-xs font-bold tracking-wider uppercase transition active:scale-98 flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                      key={opt.id}
+                      id={`option-${opt.id}`}
+                      onClick={() => handleSelectOption(opt)}
+                      className="w-full text-left px-5 py-3.5 bg-white hover:bg-pink-50/20 border border-pink-100 hover:border-pink-300 active:bg-pink-50 rounded-xl text-sm md:text-base text-purple-950 font-semibold transition duration-150 cursor-pointer shadow-3xs flex items-center justify-between group"
                     >
-                      <span>AVANÇAR PARA ÚLTIMA ETAPA</span>
-                      <ArrowRight size={14} />
+                      <span className="pr-4">{opt.text}</span>
+                      <span className="w-6 h-6 border border-pink-100 group-hover:border-pink-350 rounded-full flex items-center justify-center bg-pink-50/30 group-hover:bg-pink-100 transition shrink-0">
+                        <ChevronRight size={14} className="text-pink-400 group-hover:text-pink-700 transition" />
+                      </span>
                     </button>
-                  </div>
-                )}
+                  ))}
+                </div>
               </div>
 
               {/* Supportive micro tagline */}
-              <div className="mt-4 pt-4 border-t border-pink-50 flex items-center justify-center gap-1.5 text-[11px] text-purple-400 font-semibold">
+              <div className="mt-6 pt-4 border-t border-pink-50 flex items-center justify-center gap-1.5 text-[11px] text-purple-400 font-semibold select-none">
                 <ShieldCheck size={12} className="text-pink-500" />
                 <span>Dados de privacidade seguros e protegidos</span>
               </div>
@@ -596,7 +495,7 @@ export default function App() {
                   </div>
                   <div className="shrink-0 bg-pink-50/40 border border-pink-100/50 rounded-2xl px-4 py-2 text-left">
                     <span className="text-[10px] text-purple-400 block font-bold font-mono">FORÇA DA BARREIRA:</span>
-                    <span className="text-sm md:text-base font-extrabold text-purple-950">{scoreResult} de 40 pontos</span>
+                    <span className="text-sm md:text-base font-extrabold text-purple-950">{scoreResult} de 15 pontos</span>
                   </div>
                 </div>
 

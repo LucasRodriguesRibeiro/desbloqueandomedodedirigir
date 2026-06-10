@@ -12,96 +12,44 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 2,
-    questionText: "Você possui acesso a um carro para dirigir?",
+    questionText: "Há quanto tempo você possui CNH mas evita dirigir?",
     type: "select",
     options: [
-      { id: "2a", text: "Sim, carro próprio", score: 1 },
-      { id: "2b", text: "Sim, carro da família", score: 2 },
-      { id: "2c", text: "Não", score: 3 }
+      { id: "2a", text: "Fiz o exame recentemente (menos de 1 ano)", score: 1 },
+      { id: "2b", text: "Entre 1 e 5 anos sem dirigir com regularidade", score: 2 },
+      { id: "2c", text: "Há mais de 5 ou 10 anos com o carro parado", score: 3 }
     ]
   },
   {
     id: 3,
-    questionText: "Há quanto tempo você evita dirigir?",
+    questionText: "Qual frase melhor descreve o que você sente ao sentar no banco do motorista?",
     type: "select",
     options: [
-      { id: "3a", text: "Menos de 30 dias", score: 1 },
-      { id: "3b", text: "Entre 1 e 6 meses", score: 2 },
-      { id: "3c", text: "Entre 6 meses e 1 ano", score: 3 },
-      { id: "3d", text: "Mais de 1 ano", score: 4 }
+      { id: "3a", text: "Coração acelera, sinto suor frio e uma vontade enorme de desistir", score: 4 },
+      { id: "3b", text: "Tenho medo de cometer erros bobos, deixar o carro morrer ou de passar vergonha", score: 3 },
+      { id: "3c", text: "Sinto apenas uma insegurança leve, o que me falta mesmo é mais prática", score: 1 }
     ]
   },
   {
     id: 4,
-    questionText: "Quando você pensa em dirigir, o que sente primeiro?",
+    questionText: "Qual situação no trânsito mais te causa receio ou batedeira?",
     type: "select",
     options: [
-      { id: "4a", text: "Ansiedade", score: 4 },
-      { id: "4b", text: "Medo de errar", score: 3 },
-      { id: "4c", text: "Medo de bater", score: 4 },
-      { id: "4d", text: "Nervosismo", score: 2 },
-      { id: "4e", text: "Insegurança", score: 3 }
+      { id: "4a", text: "Pegar avenidas muito movimentadas, rodovias ou horários de pico", score: 4 },
+      { id: "4b", text: "Controle em subidas, ladeiras ou parar em semáforos inclinados", score: 3 },
+      { id: "4c", text: "Fazer baliza, estacionar em público ou manobrar com alguém assistindo", score: 2 },
+      { id: "4d", text: "Dirigir sozinha à noite ou sob chuva forte", score: 2 }
     ]
   },
   {
     id: 5,
-    questionText: "Qual situação mais te assusta?",
+    questionText: "Você já deixou de realizar compromissos ou passeios por medo de dirigir?",
     type: "select",
     options: [
-      { id: "5a", text: "Trânsito movimentado", score: 3 },
-      { id: "5b", text: "Estacionar", score: 2 },
-      { id: "5c", text: "Rodovias", score: 4 },
-      { id: "5d", text: "Subidas", score: 3 },
-      { id: "5e", text: "Dirigir sozinha", score: 4 }
-    ]
-  },
-  {
-    id: 6,
-    questionText: "Você já deixou de sair ou resolver algo por medo de dirigir?",
-    type: "select",
-    options: [
-      { id: "6a", text: "Sim, várias vezes", score: 4 },
-      { id: "6b", text: "Algumas vezes", score: 3 },
-      { id: "6c", text: "Poucas vezes", score: 2 },
-      { id: "6d", text: "Nunca", score: 1 }
-    ]
-  },
-  {
-    id: 7,
-    questionText: "Seu carro fica parado por falta de confiança?",
-    type: "select",
-    options: [
-      { id: "7a", text: "Sim", score: 4 },
-      { id: "7b", text: "Às vezes", score: 2 },
-      { id: "7c", text: "Não tenho carro", score: 1 }
-    ]
-  },
-  {
-    id: 8,
-    questionText: "Quanto esse problema afeta sua liberdade?",
-    type: "slider",
-    options: [] // Managed via custom visual slider 1 to 10
-  },
-  {
-    id: 9,
-    questionText: "O que mais mudaria em sua vida se você voltasse a dirigir com confiança?",
-    type: "select",
-    options: [
-      { id: "9a", text: "Mais independência", score: 2 },
-      { id: "9b", text: "Mais liberdade", score: 2 },
-      { id: "9c", text: "Menos ansiedade", score: 2 },
-      { id: "9d", text: "Mais segurança", score: 1 },
-      { id: "9e", text: "Todas as opções", score: 4 }
-    ]
-  },
-  {
-    id: 10,
-    questionText: "Você estaria disposta a dedicar alguns minutos por dia para recuperar sua confiança ao volante?",
-    type: "select",
-    options: [
-      { id: "10a", text: "Sim", score: 1 },
-      { id: "10b", text: "Talvez", score: 2 },
-      { id: "10c", text: "Não", score: 3 }
+      { id: "5a", text: "Sim, evito constantemente e acabo dependendo sempre de carona ou Uber", score: 4 },
+      { id: "5b", text: "Sim, algumas vezes quando sei que o caminho ou estacionamento é difícil", score: 3 },
+      { id: "5c", text: "Raramente deixo de ir, mas procuro caminhos fáceis ou vou acompanhada", score: 2 },
+      { id: "5d", text: "Nunca deixei de sair, mas sinto um estresse e ansiedade absurdos antes", score: 1 }
     ]
   }
 ];
