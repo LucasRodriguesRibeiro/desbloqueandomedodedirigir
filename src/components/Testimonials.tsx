@@ -22,7 +22,7 @@ export default function Testimonials() {
       city: "São Paulo - SP",
       avatarBg: "bg-purple-100 text-purple-800",
       avatarText: "MS",
-      text: "Eu tinha CNH há 8 anos e o carro ficava na garagem pegando poeira. Sentia uma batedeira no peito só de olhar pra chave. O e-book me ensinou a encarar os pensamentos de pânico. Hoje levo meu filho na escola todos os dias dirigindo sozinha! Mudou minha vida por R$ 17.",
+      text: "Eu tinha CNH há 8 anos e o carro ficava na garagem pegando poeira. Sentia uma batedeira no peito só de olhar pra chave. Com o método, consegui vencer esse pânico de vez e aprendi a reprogramar meus pensamentos. Hoje levo meu filho na escola todos os dias dirigindo sozinha! Mudou minha vida por apenas R$ 17.",
       situationBefore: "Carro parado por 8 anos",
       resultAfter: "Independência total diária"
     },
@@ -33,7 +33,7 @@ export default function Testimonials() {
       city: "Belo Horizonte - MG",
       avatarBg: "bg-pink-100 text-pink-800",
       avatarText: "SR",
-      text: "Sempre que meu marido viajava eu ficava dependente de Uber ou carona deles porque morria de medo de pegar trânsito movimentado. Pratiquei os exercícios de respiração e o plano de passos curtos. Na semana passada peguei a avenida principal e nem acredito que não travei!",
+      text: "Sempre que meu marido viajava eu ficava dependente de Uber ou carona porque morria de medo de pegar trânsito movimentado. Com o passo a passo do método, consegui vencer a ansiedade persistente e segui as etapas de controle emocional. Na semana passada peguei a avenida principal sozinha e com calma absoluta!",
       situationBefore: "Pânico de avenidas cheias",
       resultAfter: "Primeira avenida sem acompanhante"
     },
@@ -44,7 +44,7 @@ export default function Testimonials() {
       city: "Curitiba - PR",
       avatarBg: "bg-indigo-100 text-indigo-800",
       avatarText: "JM",
-      text: "O que me paralisava era o medo do julgamento dos outros, de deixar o carro morrer na subida ou errar a baliza. As técnicas mentais do livro me deram um colo enorme. Entendi que o bloqueio não era incapacidade. Vale infinitamente mais que sessões caras de terapia ou aulas extras.",
+      text: "O que me paralisava era o medo do julgamento dos outros, de deixar o carro morrer na subida ou errar a baliza. As técnicas do método me deram um direcionamento seguro e finalmente consegui vencer esse bloqueio oculto. Vale muito mais que aulas extras em autoescola.",
       situationBefore: "Medo de julgamento e subidas",
       resultAfter: "Voltou a dirigir com calma"
     }

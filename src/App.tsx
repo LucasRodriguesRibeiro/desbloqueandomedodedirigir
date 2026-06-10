@@ -627,6 +627,9 @@ export default function App() {
                 </div>
               </div>
 
+              {/* TESTIMONIALS & TRUST PROOFS SEGMENT */}
+              <Testimonials />
+
               {/* GATILHO DE DOR WARNING COST CALLOUT */}
               <div className="bg-rose-50/30 border border-rose-100 rounded-3xl p-6 md:p-8 shadow-2xs space-y-4">
                 <div className="flex items-center gap-2 text-rose-700">
@@ -711,9 +714,6 @@ export default function App() {
                   </div>
                 </div>
               </div>
-
-              {/* TESTIMONIALS & TRUST PROOFS SEGMENT */}
-              <Testimonials />
 
               {/* FAQ COLLAPSIBLE TOGGLEABLE ACCORDIONS */}
               <FAQ />
