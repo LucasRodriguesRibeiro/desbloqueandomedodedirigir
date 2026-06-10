@@ -1,0 +1,6 @@
+{
+  "name": "Desbloqueie o Medo de Dirigir",
+  "description": "Quiz de alta conversão e diagnóstico emocional para superar o medo e ansiedade de dirigir.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
