@@ -59,14 +59,6 @@ export default function App() {
     setAnswers(updatedAnswers);
     setSelectedOptions(updatedSelectedOptions);
 
-    // Filter validation for Question 1 (CNH)
-    if (currentQuestion.id === 1) {
-      if (option.text === "Não") {
-        setScreen(ScreenState.HALTED);
-        return;
-      }
-    }
-
     // Advancing logic with smooth delay for interaction feel
     setTimeout(() => {
       if (currentQuestionIndex < QUIZ_QUESTIONS.length - 1) {
@@ -540,7 +532,7 @@ export default function App() {
               </div>
 
               {/* SEÇÃO DE IDENTIFICAÇÃO: Emotional Connection Open Letter */}
-              <div className="bg-gradient-to-r from-purple-950 to-indigo-950 text-slate-100 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-xl text-center md:text-left border border-pink-100/10">
+              <div className="bg-[#1e0e33] bg-gradient-to-r from-[#1e0e33] to-[#0f0720] text-slate-100 rounded-3xl p-6 md:p-8 relative overflow-hidden shadow-xl text-center md:text-left border border-pink-100/10">
                 {/* Visual vectors */}
                 <div className="absolute -bottom-10 -right-10 w-44 h-44 bg-pink-500/10 blur-3xl rounded-full"></div>
                 

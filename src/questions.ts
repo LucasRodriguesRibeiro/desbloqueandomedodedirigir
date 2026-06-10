@@ -12,12 +12,12 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
   },
   {
     id: 2,
-    questionText: "Há quanto tempo você possui CNH mas evita dirigir?",
+    questionText: "Há quanto tempo você evita dirigir com regularidade?",
     type: "select",
     options: [
-      { id: "2a", text: "Fiz o exame recentemente (menos de 1 ano)", score: 1 },
-      { id: "2b", text: "Entre 1 e 5 anos sem dirigir com regularidade", score: 2 },
-      { id: "2c", text: "Há mais de 5 ou 10 anos com o carro parado", score: 3 }
+      { id: "2a", text: "Menos de 1 ano (ou estou iniciando na autoescola/processo)", score: 1 },
+      { id: "2b", text: "Entre 1 e 5 anos sem dirigir ou treinar", score: 2 },
+      { id: "2c", text: "Há mais de 5 ou 10 anos paralisada ou sem coragem de começar", score: 3 }
     ]
   },
   {
@@ -87,7 +87,7 @@ export const PROFILE_DETAILS: Record<ProfileType, QuizResultProfile> = {
     behaviorDetails: [
       "Sintomas físicos evidentes (taquicardia, suor nas mãos, tremor) só de pensar em conduzir.",
       "Evitamento severo, dependendo integralmente de terceiros, aplicativos de carona ou transporte público.",
-      "Autoestima impactada, acompanhada de sentimentos de frustração por possuir a habilitação (CNH) e não usá-la."
+      "Autoestima impactada, com sentimentos de frustração por querer assumir a direção mas se sentir paralisada."
     ],
     recommendation: "Para o bloqueio intenso, métodos tradicionais de autoescola falham porque focam em técnica, quando o problema é puramente emocional. Você precisa de exercícios terapêuticos mapeados cientificamente para recondicionar o seu cérebro, exatamente o que o nosso e-book proporciona."
   }
